@@ -7,7 +7,7 @@ CREATE TABLE tickets (
     "date_submitted" VARCHAR(255),
     "employee" VARCHAR(255),
     "status" VARCHAR(255),
-    "date_completed" VARCHAR(255)
+    "date_completed" VARCHAR(255),
     CONSTRAINT "employee" FOREIGN KEY ("employee")
-        REFERENCES public."employees" ("employee_id")
+        REFERENCES public."employees" ("employee_email")
 );
