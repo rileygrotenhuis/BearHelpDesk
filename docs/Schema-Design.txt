@@ -1,0 +1,16 @@
+Employees:
+    - employee_email VARCHAR(255) (PK)
+    - employee_password VARCHAR(255)
+    - first_name VARCHAR(255)
+    - last_name VARCHAR(255)
+
+Tickets:
+    - ticket_id SERIAL (PK)
+    - title VARCHAR(255)
+    - type VARCHAR(255)
+    - urgency INTEGER
+    - description VARCHAR(1000)
+    - date_submitted VARCHAR(255)
+    - employee (FK => Employees)
+    - status VARCHAR(255)
+    - date_completed VARCHAR(255)
