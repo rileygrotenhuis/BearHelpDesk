@@ -1,5 +1,5 @@
 Submit Ticket Page:
-    - POST '/ticket' => Creates a new IT Support Ticket and add it to the database
+    - POST '/submit/ticket' => Creates a new IT Support Ticket and add it to the database
 
 Employee Login Page:
     - POST '/login' => Authenticate a user with a given email and matching password
@@ -7,16 +7,16 @@ Employee Login Page:
     - DELETE '/logout' => Logout an authenticated user
 
 Employee Dashboard Page:
-    - GET '/tickets/:employeeEmail/current' => Get all of the tickets that an employee is currently working on
-    - PUT '/ticket/:ticketID/status' => Update the status of a given ticket
-    - POST '/contact/:clientEmail' => Send an email to the client with their given email address
-    - DELETE '/ticket/:ticketID' => Delete a given ticket from the database
+    - GET '/dashboard/:employeeEmail/tickets/current' => Get all of the tickets that an employee is currently working on
+    - PUT '/dashboard/ticket/:ticketID/status' => Update the status of a given ticket
+    - POST '/dashboard/contact/:clientEmail' => Send an email to the client with their given email address
+    - DELETE '/dashboard/ticket/:ticketID' => Delete a given ticket from the database
 
 Employee Profile Page:
-    - GET '/employee/:employeeEmail' => Get all of the personal information of a given employee
-    - PUT '/employee/:employeeEmail' => Update the personal information of a given employee
-    - GET '/tickets/:employeeEmail/completed' => Get all of the tickets that an employee has completed
+    - GET '/profile/employee/:employeeEmail' => Get all of the personal information of a given employee
+    - PUT '/profile/employee/:employeeEmail' => Update the personal information of a given employee
+    - GET '/profile/:employeeEmail/tickets/completed' => Get all of the tickets that an employee has completed
 
 Ticket Board Page:
-    - GET '/tickets/all' => Get all of the tickets that no employee is currently workign on
-    - PUT '/ticket/:ticketID/assign' => Changes the employee who is currently working on a given ticket
+    - GET '/board/tickets/all' => Get all of the tickets that no employee is currently workign on
+    - PUT '/board/ticket/:ticketID/assign' => Changes the employee who is currently working on a given ticket
