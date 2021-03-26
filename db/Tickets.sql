@@ -8,6 +8,8 @@ CREATE TABLE tickets (
     "employee" VARCHAR(255),
     "status" VARCHAR(255),
     "date_completed" VARCHAR(255),
+    "client_name" VARCHAR(255),
+    "client_email" VARCHAR(255),
     CONSTRAINT "employee" FOREIGN KEY ("employee")
         REFERENCES public."employees" ("employee_email")
 );
