@@ -1,11 +1,11 @@
 {
-  "name": "server",
+  "name": "bearhelpdesk-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API for the Bear Help Desk web application built using Node.js",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "packages": "npm install",
+    "dev": "nodemon server.js"
   },
   "author": "Riley Grotenhuis",
   "license": "ISC",
