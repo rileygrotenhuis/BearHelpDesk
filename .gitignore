@@ -1,3 +1,6 @@
+# MISC
+tests/
+
 # Logs
 logs
 *.log

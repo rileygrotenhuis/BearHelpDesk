@@ -16,6 +16,10 @@ app.use(cors({
     credentials: true
 }));
 
+// Routes
+const submitRoutes = require('./routes/submit.routes');
+app.use('/submit', submitRoutes);
+
 // Listen
 app.listen(PORT, () => {
     console.log(`Bear Help Desk is running at ${PORT}`);
