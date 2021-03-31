@@ -21,6 +21,8 @@ const submitRoutes = require('./routes/submit.routes');
 app.use('/submit', submitRoutes);
 const dashboardRoutes = require('./routes/dashboard.routes');
 app.use('/dashboard', dashboardRoutes);
+const contactRoutes = require('./routes/contact.routes');
+app.use('/contact', contactRoutes);
 
 // Listen
 app.listen(PORT, () => {
