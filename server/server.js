@@ -19,6 +19,8 @@ app.use(cors({
 // Routes
 const submitRoutes = require('./routes/submit.routes');
 app.use('/submit', submitRoutes);
+const dashboardRoutes = require('./routes/dashboard.routes');
+app.use('/dashboard', dashboardRoutes);
 
 // Listen
 app.listen(PORT, () => {
