@@ -1,5 +1,6 @@
 # MISC
 tests/
+.DS_Store
 
 # Logs
 logs
