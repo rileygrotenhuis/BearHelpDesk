@@ -4,7 +4,7 @@ const pool = require('../config/db.config');
 // This function gets all of the tickets that an employee is currently working on
 exports.getCurrentTickets = async (employee) => {
     // SQL SELECT Query
-    var data = await pool.query("SELECT * FROM tickets WHERE employee = $1", [employee]);
+    var data = await pool.query("SELECT * FROM tickets WHERE employee = $1 AND status = $2", [employee, 'In Progress']);
 
     // Just get the data from the above query
     data = data.rows;

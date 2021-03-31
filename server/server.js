@@ -23,6 +23,8 @@ const dashboardRoutes = require('./routes/dashboard.routes');
 app.use('/dashboard', dashboardRoutes);
 const contactRoutes = require('./routes/contact.routes');
 app.use('/contact', contactRoutes);
+const profileRoutes = require('./routes/profile.routes');
+app.use('/profile', profileRoutes);
 
 // Listen
 app.listen(PORT, () => {

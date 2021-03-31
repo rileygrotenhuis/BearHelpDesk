@@ -15,7 +15,7 @@ router.get('/:employeeEmail/tickets/current', async (req, res) => {
 
         // Success Output
         console.log(data);
-        res.status(201);
+        res.status(200);
     } catch (e) {
         // Failure Output
         console.log(e);
