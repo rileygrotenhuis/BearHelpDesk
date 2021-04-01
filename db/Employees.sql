@@ -1,3 +1,5 @@
+-- Employees Table
+
 CREATE TABLE employees (
     "employee_email" VARCHAR(255) PRIMARY KEY,
     "employee_password" VARCHAR(255),

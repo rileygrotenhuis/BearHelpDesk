@@ -1,3 +1,5 @@
+-- Tickets Table
+
 CREATE TABLE tickets (
     "ticket_id" SERIAL PRIMARY KEY,
     "title" VARCHAR(255),
