@@ -17,6 +17,14 @@ app.use(cors({
 }));
 
 // Routes
+app.use('/submit', require('./routes/submit.routes'));
+app.use('/dashboard', require('./routes/dashboard.routes'));
+app.use('/contact', require('./routes/contact.routes'));
+app.use('/profile', require('./routes/profile.routes'));
+app.use('/board', require('./routes/board.routes'));
+
+/*
+// Routes
 const submitRoutes = require('./routes/submit.routes');
 app.use('/submit', submitRoutes);
 const dashboardRoutes = require('./routes/dashboard.routes');
@@ -27,6 +35,7 @@ const profileRoutes = require('./routes/profile.routes');
 app.use('/profile', profileRoutes);
 const boardRoutes = require('./routes/board.routes');
 app.use('/board', boardRoutes);
+*/
 
 // Listen
 app.listen(PORT, () => {
