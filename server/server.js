@@ -25,6 +25,8 @@ const contactRoutes = require('./routes/contact.routes');
 app.use('/contact', contactRoutes);
 const profileRoutes = require('./routes/profile.routes');
 app.use('/profile', profileRoutes);
+const boardRoutes = require('./routes/board.routes');
+app.use('/board', boardRoutes);
 
 // Listen
 app.listen(PORT, () => {
