@@ -6,7 +6,7 @@ const router = express.Router();
 const boardController = require('../controllers/board.controller');
 
 // GET '/board/tickets/all' => Get all of the tickets that no employee is currently workign on
-router.get('tickets/all', async (req, res) => {
+router.get('/tickets/all', async (req, res) => {
     try {
         // Get all of the tickets not being worked on
         const data = await boardController.getAllTickets();
