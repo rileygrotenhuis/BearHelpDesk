@@ -18,13 +18,14 @@ app.use(cors({
 
 // Passport Configuration
 const passport = require('passport');
+const flash = require('express-flash');
 const session = require('express-session');
-const initializePassport = require('./config/passport.config');
-initializePassport(passport);
+const inititalizePassport = require('./config/passport.config');
+inititalizePassport(passport);
 app.use(session({
     secret: 'SECRET',
-    resave: false,
-    saveUninitialized: false
+    resave: true,
+    saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -35,6 +36,8 @@ app.use('/dashboard', require('./routes/dashboard.routes'));
 app.use('/contact', require('./routes/contact.routes'));
 app.use('/profile', require('./routes/profile.routes'));
 app.use('/board', require('./routes/board.routes'));
+const loginRoutes = require('./routes/login.routes');
+app.use(loginRoutes);
 
 // Listen
 app.listen(PORT, () => {

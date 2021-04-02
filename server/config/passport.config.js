@@ -5,7 +5,7 @@ const pool = require('./db.config');
 const localStrategy = require('passport-local').Strategy;
 
 // Initialize Passport
-exports.initialize = (passport) => {
+function initialize(passport) {
     // Authenticate User
     const authenticateUser = async (username, password, done) => {
         // Get the User from the db with the given username
@@ -14,19 +14,17 @@ exports.initialize = (passport) => {
 
         // If the user does not exist, send an error
         if (user == null) {
-            console.log('User does not exist');
-            return done(null, false, { message: 'User does not exist' });
+            return done(null, false, { message: "Employee does not exist" });
         }
 
         // Otherwise...
         try {   
             // If the User's password found above matches the password in the login form, return the authenticated user
-            if (password == user.employee_email) {
-                return done(null, user);
+            if (password == user.employee_password) {
+                return done(null, user, { message: 'Employee logged in' });
             // Otherwise, send an error
             } else {
-                console.log('Password does not match!');
-                return done(null, false, { message: 'Password incorrect' });
+                return done(null, false, { message: "Passwords does not exist" });
             }
         } catch (e) {
             return done(e);
@@ -37,11 +35,14 @@ exports.initialize = (passport) => {
     passport.use(new localStrategy({ usernameField: 'username' }, authenticateUser));
 
     // Serialize User
-    passport.serializeUser((user, done) => done(null, user.username));
+    passport.serializeUser((user, done) => done(null, user.employee_email));
     // Deserialize User
     passport.deserializeUser(async (username, done) => {
-        var data = await pool.query("SELECT * FROM employees WHERE employee_login = $1", [username]);
+        var data = await pool.query("SELECT * FROM employees WHERE employee_email = $1", [username]);
         data = data.rows[0];
         return done(null, data);
     });
 }
+
+// Export
+module.exports = initialize;
