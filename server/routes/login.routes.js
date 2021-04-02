@@ -32,5 +32,21 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
 });
 
+// DELETE '/logout' => Logs an employee out
+router.delete('/logout', async (req, res) => {
+    try {
+        // Logout
+        req.logOut();
+
+        // Success Output
+        console.log('Successfully logged out');
+        res.status(200);
+    } catch (e) {
+        // Failure Output
+        console.log(e);
+        res.status(201);
+    }
+});
+
 // Export Router
 module.exports = router;
