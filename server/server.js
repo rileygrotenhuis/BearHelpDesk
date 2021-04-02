@@ -16,26 +16,25 @@ app.use(cors({
     credentials: true
 }));
 
+// Passport Configuration
+const passport = require('passport');
+const session = require('express-session');
+const initializePassport = require('./config/passport.config');
+initializePassport(passport);
+app.use(session({
+    secret: 'SECRET',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Routes
 app.use('/submit', require('./routes/submit.routes'));
 app.use('/dashboard', require('./routes/dashboard.routes'));
 app.use('/contact', require('./routes/contact.routes'));
 app.use('/profile', require('./routes/profile.routes'));
 app.use('/board', require('./routes/board.routes'));
-
-/*
-// Routes
-const submitRoutes = require('./routes/submit.routes');
-app.use('/submit', submitRoutes);
-const dashboardRoutes = require('./routes/dashboard.routes');
-app.use('/dashboard', dashboardRoutes);
-const contactRoutes = require('./routes/contact.routes');
-app.use('/contact', contactRoutes);
-const profileRoutes = require('./routes/profile.routes');
-app.use('/profile', profileRoutes);
-const boardRoutes = require('./routes/board.routes');
-app.use('/board', boardRoutes);
-*/
 
 // Listen
 app.listen(PORT, () => {
