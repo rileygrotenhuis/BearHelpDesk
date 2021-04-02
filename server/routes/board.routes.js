@@ -11,12 +11,19 @@ router.get('/tickets/all', async (req, res) => {
         // Get all of the tickets not being worked on
         const data = await boardController.getAllTickets();
 
-        // Send that data
-        res.send(data);
+        // If there are no tickets currently working
+        if (data[0] == null) {  
+            console.log("There are currently no tickets");
+            res.status(202);
+        // Otherwise...
+        } else {
+            // Send that data
+            res.send(data);
 
-        // Success Output
-        console.log(data);
-        res.status(200);
+            // Success Output
+            console.log(data);
+            res.status(200);
+        }
     } catch (e) {
         // Failure Output
         console.log(e);
