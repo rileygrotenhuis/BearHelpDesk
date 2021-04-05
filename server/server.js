@@ -36,8 +36,7 @@ app.use('/dashboard', require('./routes/dashboard.routes'));
 app.use('/contact', require('./routes/contact.routes'));
 app.use('/profile', require('./routes/profile.routes'));
 app.use('/board', require('./routes/board.routes'));
-const loginRoutes = require('./routes/login.routes');
-app.use(loginRoutes);
+app.use(require('./routes/login.routes'));
 
 // Listen
 app.listen(PORT, () => {
