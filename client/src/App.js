@@ -22,7 +22,7 @@ function App() {
 				<Route path="/submit">
 					<SubmitPage />
 				</Route>
-				<Route path="login">
+				<Route path="/login">
 					<LoginPage />
 				</Route>
 				<Route path="/">
