@@ -12,11 +12,11 @@ router.post('/ticket', async (req, res) => {
         submitController.submitTicket(req.body.title, req.body.type, req.body.urgency, req.body.description, req.body.name, req.body.email);
         // Success Output
         console.log('Ticket Submitted Successfully!');
-        res.status(200);
+        res.status(200).send();
     } catch (e) {
         // Failure Output
         console.log(e);
-        res.status(201);
+        res.status(201).send();
     }
 });
 

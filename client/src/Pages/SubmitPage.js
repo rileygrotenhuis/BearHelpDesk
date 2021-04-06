@@ -3,13 +3,17 @@ import React from 'react';
 
 // Components
 import Navbar from '../Components/Navbar';
+import SubmitTicketForm from '../Components/SubmitTicketForm';
 
 // Submit Page
 function SubmitPage() {
     return (
         <div>
             <Navbar />
-            <h1>Submit Page</h1>
+            <div className="container w-50">
+                <h1>Submit Page</h1>
+                <SubmitTicketForm />
+            </div>
         </div>
     );
 }
