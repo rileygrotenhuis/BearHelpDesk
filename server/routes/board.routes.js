@@ -1,3 +1,9 @@
+/*
+    STATUS KEY:
+    - 200 = Success
+    - 201 = Failure
+*/
+
 // Express
 const express = require('express');
 const router = express.Router();
@@ -22,12 +28,12 @@ router.get('/tickets/all', async (req, res) => {
 
             // Success Output
             console.log(data);
-            res.status(200);
+            res.status(200).send();
         }
     } catch (e) {
         // Failure Output
         console.log(e);
-        res.status(201);
+        res.status(201).send();
     }
 });
 
@@ -39,11 +45,11 @@ router.put('/ticket/:ticketID/assign', async (req, res) => {
 
         // Sucess Output
         console.log('Ticket has been assigned to ' + req.body.employee);
-        res.status(200);
+        res.status(200).send();
     } catch (e) {
         // Failure Output
         console.log(e);
-        res.status(201);
+        res.status(201).send();
     }
 });
 

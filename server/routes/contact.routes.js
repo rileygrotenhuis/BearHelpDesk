@@ -1,3 +1,9 @@
+/*
+    STATUS KEY:
+    - 200 = Success
+    - 201 = Failure
+*/
+
 // Express
 const express = require('express');
 const router = express.Router();
@@ -13,11 +19,11 @@ router.post('/:clientEmail', async (req, res) => {
 
         // Success Output
         console.log("Email Sent!");
-        res.status(200);
+        res.status(200).send();
     } catch (e) {
         // Failure Output
         console.log(e);
-        res.status(201);
+        res.status(201).send();
     }
 });
 

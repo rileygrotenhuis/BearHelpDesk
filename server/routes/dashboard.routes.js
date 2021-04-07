@@ -1,3 +1,9 @@
+/*
+    STATUS KEY:
+    - 200 = Success
+    - 201 = Failure
+*/
+
 // Express
 const express = require('express');
 const router = express.Router();
@@ -15,11 +21,11 @@ router.get('/:employeeEmail/tickets/current', async (req, res) => {
 
         // Success Output
         console.log(data);
-        res.status(200);
+        res.status(200).send();
     } catch (e) {
         // Failure Output
         console.log(e);
-        res.status(201);
+        res.status(201).send();
     }
 });
 
@@ -31,11 +37,11 @@ router.put('/ticket/:ticketID/status', async (req, res) => {
 
         // Success Output
         console.log('Ticket Status updated successfully!');
-        res.status(200);
+        res.status(200).send();
     } catch (e) {
         // Failure Output
         console.log(e);
-        res.status(201);
+        res.status(201).send();
     }
 });
 
@@ -47,11 +53,11 @@ router.delete('/ticket/:ticketID', async (req, res) => {
 
         // Success Output
         console.log('Ticket deleted successfully!');
-        res.status(200);
+        res.status(200).send();
     } catch (e) {
         // Failure Output
         console.log(e);
-        res.status(201);
+        res.status(201).send();
     }
 });
 

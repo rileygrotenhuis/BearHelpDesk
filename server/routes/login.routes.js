@@ -1,3 +1,10 @@
+/*
+    STATUS KEY:
+    - 200 = Success
+    - 201 = Employee doesn't exist
+    - 202 = Password does not match
+*/
+
 // Express
 const express = require('express');
 const router = express.Router();
@@ -45,11 +52,11 @@ router.delete('/logout', async (req, res) => {
 
         // Success Output
         console.log('Successfully logged out');
-        res.status(200);
+        res.status(200).send();
     } catch (e) {
         // Failure Output
         console.log(e);
-        res.status(201);
+        res.status(201).send();
     }
 });
 
