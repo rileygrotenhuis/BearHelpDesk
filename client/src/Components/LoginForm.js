@@ -1,5 +1,5 @@
 // React Modules
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Axios from 'axios';
 
@@ -16,7 +16,7 @@ function LoginForm() {
     // Handle Click
     const login = async () => {
         // If any of the fields are missing, inform the user
-        if (username == '' || password == '') {
+        if (username === '' || password === '') {
             alert('Missing form fields!');
         // Otherwise...
         } else {
@@ -31,14 +31,14 @@ function LoginForm() {
                 url: 'http://localhost:5000/login'
             }).then(res => {
                 // If the status passes, redirect to Home Page (for now...)
-                if (res.status.toString() == '200') {
+                if (res.status.toString() === '200') {
                     alert('Successully Authenticated!');
                     history.push('/');
                 // Alert the user if the employee does not exist
-                } else if (res.status.toString() == '201') {
+                } else if (res.status.toString() === '201') {
                     alert('Employee does not exist!');
                 // Alert the user if the password is incorrect
-                } else if (res.status.toString() == '202') {
+                } else if (res.status.toString() === '202') {
                     alert('Incorrect password, try again!');
                 }
             // Catch any errors

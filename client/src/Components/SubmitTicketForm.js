@@ -1,5 +1,5 @@
 // React Modules
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Axios from 'axios';
 
@@ -20,7 +20,7 @@ function SubmitTicketForm() {
     // Handle Click
     const handleClick = async () => {
         // If any of the fields are missing, inform the user
-        if (title == '' || description == '' || name == '' || email == '') {
+        if (title === '' || description === '' || name === '' || email === '') {
             alert('Missing form fields!');
         // Otherwise...
         } else {
@@ -39,7 +39,7 @@ function SubmitTicketForm() {
                 url: "http://localhost:5000/submit/ticket"
             }).then(res => {
                 // If the status passed, submit ticket and redirect to Home Page
-                if (res.status == 200) {
+                if (res.status === 200) {
                     alert('Ticket has been submitted successfully!');
                     history.push('/');
                 // Otherwise, alert the user
