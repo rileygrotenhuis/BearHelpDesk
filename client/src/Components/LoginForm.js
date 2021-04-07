@@ -6,7 +6,7 @@ import Axios from 'axios';
 // Login Form Component 
 function LoginForm() {
 
-    // History Variable
+    // useHistory Variable
     let history = useHistory();
 
     // useState Variables
@@ -14,7 +14,7 @@ function LoginForm() {
     const [password, setPassword] = useState("");
 
     // Handle Click
-    const handleClick = async () => {
+    const login = async () => {
         // If any of the fields are missing, inform the user
         if (username == '' || password == '') {
             alert('Missing form fields!');
@@ -41,6 +41,12 @@ function LoginForm() {
                 } else if (res.status.toString() == '202') {
                     alert('Incorrect password, try again!');
                 }
+            // Catch any errors
+            }).catch(function(error) {
+                if (error) {
+                    alert('An error has occured while trying to log in! Try again at a later time.');
+                    console.log(error);
+                }
             });
         }
     }
@@ -66,7 +72,7 @@ function LoginForm() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
-            <button onClick={handleClick} className="btn btn-md btn-primary mt-3">Login</button>
+            <button onClick={login} className="btn btn-md btn-primary mt-3">Login</button>
         </div>
     )
 }

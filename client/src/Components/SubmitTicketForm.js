@@ -46,6 +46,12 @@ function SubmitTicketForm() {
                 } else {
                     alert('There was an error while submitting your ticket. Try again');
                 }
+            // Catch any errors
+            }).catch(function(error) {
+                if (error) {
+                    alert('An error occurred while submitting this ticket! Try again later.');
+                    console.log(error);
+                }
             });
         }
     }

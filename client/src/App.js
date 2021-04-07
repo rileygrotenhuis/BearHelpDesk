@@ -15,8 +15,10 @@ import LoginPage from './Pages/LoginPage';
 
 // Main App Component
 function App() {
-  return (
-    <div>
+
+	// Routes
+	return (
+	<div>
 		<Router>
 			<Switch>
 				<Route path="/submit">
@@ -30,8 +32,8 @@ function App() {
 				</Route>
 			</Switch>
 		</Router>
-    </div>
-  );
+	</div>
+	);
 }
 
 // Export
