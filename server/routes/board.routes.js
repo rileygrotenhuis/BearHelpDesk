@@ -2,6 +2,7 @@
     STATUS KEY:
     - 200 = Success
     - 201 = Failure
+    - 202 = No tickets
 */
 
 // Express
