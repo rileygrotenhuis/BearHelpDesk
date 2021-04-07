@@ -12,11 +12,11 @@ router.post('/login', (req, res, next) => {
 
         // If no employee exists, output that
         if (info.message == "Employee does not exist") {
-            res.status(201);
+            res.status(201).send();
         // If the passwords do not match, output that
             console.log('Employee does not exist');
         } else if (info.message == 'Passwords does not exist') {
-            res.status(202);
+            res.status(202).send();
             console.log('Passwords does not exist');
         // Otherwise, log an employee in
         } else {
@@ -24,12 +24,17 @@ router.post('/login', (req, res, next) => {
                 // Throw any errors
                 if (err) throw err;
                 // Success Output
-                res.status(200);
+                res.status(200).send();
                 console.log('Successfully Authenticated');
                 console.log(req.user);
             });
         }
     })(req, res, next);
+});
+
+// GET '/login' => Returns logged in Employee's data
+router.get('/login', (req, res) => {
+    res.send(req.user);
 });
 
 // DELETE '/logout' => Logs an employee out

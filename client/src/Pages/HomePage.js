@@ -1,5 +1,4 @@
 // React Modules
-import React from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -9,6 +8,7 @@ import {
 
 // Home Page Module
 function HomePage() {
+    // JSX
     return (
         <div className="text-center mt-5">
             <div>
