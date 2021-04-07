@@ -19,9 +19,42 @@ function SubmitTicketForm() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
 
+    // Handle Click
+    const handleClick = async () => {
+        // If any of the fields are missing, inform the user
+        if (title == '' || description == '' || name == '' || email == '') {
+            alert('Missing form fields!');
+        // Otherwise...
+        } else {
+            // POST => '/submit/ticket'
+            await Axios({
+                method: "POST",
+                data: {
+                    "title": title,
+                    "type": type,
+                    "urgency": urgency,
+                    "description": description,
+                    "name": name,
+                    "email": email
+                },
+                withCredentials: true,
+                url: "http://localhost:5000/submit/ticket"
+            }).then(res => {
+                // If the status passed, submit ticket and redirect to Home Page
+                if (res.status == 200) {
+                    alert('Ticket has been submitted successfully!');
+                    history.push('/');
+                // Otherwise, alert the user
+                } else {
+                    alert('There was an error while submitting your ticket. Try again');
+                }
+            });
+        }
+    }
+
     // JSX
     return (
-        <form>
+        <div>
             <div class="form-group">
                 <label for="title">Title</label>
                 <input 
@@ -76,8 +109,8 @@ function SubmitTicketForm() {
                     onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
-            <button className="btn btn-md btn-primary mt-3">Submit Ticket</button>
-        </form>
+            <button onClick={handleClick} className="btn btn-md btn-primary mt-3">Submit Ticket</button>
+        </div>
     );
 }
 
