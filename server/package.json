@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "packages": "npm install",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "node server.js"
   },
   "author": "Riley Grotenhuis",
   "license": "ISC",
