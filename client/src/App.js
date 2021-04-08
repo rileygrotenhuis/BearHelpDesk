@@ -10,6 +10,7 @@ import {
 import HomePage from './Pages/HomePage';
 import SubmitPage from './Pages/SubmitPage';
 import LoginPage from './Pages/LoginPage';
+import DashboardPage from './Pages/DashboardPage';
 
 
 // Main App Component
@@ -20,6 +21,9 @@ function App() {
 	<div>
 		<Router>
 			<Switch>
+				<Route path="/dashboard">
+					<DashboardPage />
+				</Route>
 				<Route path="/submit">
 					<SubmitPage />
 				</Route>
