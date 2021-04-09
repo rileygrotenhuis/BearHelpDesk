@@ -17,24 +17,6 @@ function DashboardPage() {
     const [allItems, setAllItems] = useState([]);
     const [anyItems, setAnyItems] = useState(true);
 
-    // Function to check whether there is a logged in user
-    const checkAuthentication = () => {
-        // GET => '/login'
-        Axios({
-            method: "GET",
-            withCredentials: true,
-            url: 'http://localhost:5000/login'
-        }).then(results => {
-            if (results.data[0] == null) {
-                alert("False");
-                return false;
-            } else {
-                alert("True");
-                return true;
-            }
-        });
-    }
-
     // On Page Load
     useEffect(() => {
         // GET => '/login'
@@ -72,8 +54,11 @@ function DashboardPage() {
                         setAllItems(items);
                     }
                 });
-            } 
-        });
+            }
+        }).catch(function(error) {
+            alert('An error has occured while accessing this page.');
+            history.push('/');
+        })
     }, []);
 
     // This function logs an authenticated user out
