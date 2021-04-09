@@ -6,6 +6,7 @@ import Axios from 'axios';
 // Components
 import TicketCard from '../Components/TicketCard';
 import NoTicketsCard from '../Components/NoTicketsCard';
+import Navbar2 from '../Components/Navbar2';
 
 // Dashboard Page
 function DashboardPage() {
@@ -61,20 +62,6 @@ function DashboardPage() {
         })
     }, []);
 
-    // This function logs an authenticated user out
-    const logout = () => {
-        // DELETE => '/logout'
-        Axios({
-            method: "DELETE",
-            withCredentials: true,
-            url: 'http://localhost:5000/logout'
-        }).then(results => {
-            // Alert the user and redirect to Home Page
-            alert('Successfully Logged Out!');
-            history.push('/');
-        });
-    }
-
     // HTML Items List
     let itemList = [];
 
@@ -93,8 +80,9 @@ function DashboardPage() {
     // JSX
     return (
         <div>
+            <Navbar2 />
+            <h1>Dashboard Page</h1>
             {anyItems ? <ul>{itemList}</ul> : <NoTicketsCard />}
-            <button className="btn btn-lg btn-danger" onClick={logout}>Logout</button>
         </div>
     );
 }

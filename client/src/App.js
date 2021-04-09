@@ -11,6 +11,8 @@ import HomePage from './Pages/HomePage';
 import SubmitPage from './Pages/SubmitPage';
 import LoginPage from './Pages/LoginPage';
 import DashboardPage from './Pages/DashboardPage';
+import BoardPage from './Pages/BoardPage';
+import ProfilePage from './Pages/ProfilePage';
 
 
 // Main App Component
@@ -21,6 +23,12 @@ function App() {
 	<div>
 		<Router>
 			<Switch>
+				<Route path="/board">
+					<BoardPage />
+				</Route>
+				<Route path="/profile">
+					<ProfilePage />
+				</Route>
 				<Route path="/dashboard">
 					<DashboardPage />
 				</Route>
