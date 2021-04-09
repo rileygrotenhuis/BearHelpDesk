@@ -1,5 +1,6 @@
 // React Modules
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Axios from 'axios';
 
 // Components
@@ -9,36 +10,85 @@ import NoTicketsCard from '../Components/NoTicketsCard';
 // Dashboard Page
 function DashboardPage() {
 
+    // useHistory Variable
+    let history = useHistory();
+
     // useState Variables
     const [allItems, setAllItems] = useState([]);
     const [anyItems, setAnyItems] = useState(true);
 
-    // On Page Load
-    useEffect(() => {
-        // GET => '/dashboard/:employeeEmail/tickets/current'
+    // Function to check whether there is a logged in user
+    const checkAuthentication = () => {
+        // GET => '/login'
         Axios({
             method: "GET",
             withCredentials: true,
-            url: 'http://localhost:5000/dashboard/rg1050@live.missouristate.edu/tickets/current'
+            url: 'http://localhost:5000/login'
         }).then(results => {
-            // Local Items array
-            let items = [];
-
-            // If there is no data in the results, set anyItems? to false
             if (results.data[0] == null) {
-                setAnyItems(false);
-            // Otherwise, add the results data to the items array
+                alert("False");
+                return false;
             } else {
-                // For each item in the data set, push the data into the local array
-                for (var i = 0; i < results.data.length; i++) {
-                    items.push(results.data[i]);
-                }
-                
-                // Set the allItems array to the local results data local array
-                setAllItems(items);
+                alert("True");
+                return true;
             }
-        }); 
+        });
+    }
+
+    // On Page Load
+    useEffect(() => {
+        // GET => '/login'
+        Axios({
+            method: "GET",
+            withCredentials: true,
+            url: 'http://localhost:5000/login'
+        }).then(results => {
+            // If there is no logged in user detected, redirect to login page
+            if (results.data.employee_email == null) {
+                alert('You must be logged in to access this page!');
+                history.push('/login');
+            // Otherwise, carry on...
+            } else {
+                // GET => '/dashboard/:employeeEmail/tickets/current'
+                Axios({
+                    method: "GET",
+                    withCredentials: true,
+                    url: 'http://localhost:5000/dashboard/rg1050@live.missouristate.edu/tickets/current'
+                }).then(results => {
+                    // Local Items array
+                    let items = [];
+
+                    // If there is no data in the results, set anyItems? to false
+                    if (results.data[0] == null) {
+                        setAnyItems(false);
+                    // Otherwise, add the results data to the items array
+                    } else {
+                        // For each item in the data set, push the data into the local array
+                        for (var i = 0; i < results.data.length; i++) {
+                            items.push(results.data[i]);
+                        }
+                        
+                        // Set the allItems array to the local results data local array
+                        setAllItems(items);
+                    }
+                });
+            } 
+        });
     }, []);
+
+    // This function logs an authenticated user out
+    const logout = () => {
+        // DELETE => '/logout'
+        Axios({
+            method: "DELETE",
+            withCredentials: true,
+            url: 'http://localhost:5000/logout'
+        }).then(results => {
+            // Alert the user and redirect to Home Page
+            alert('Successfully Logged Out!');
+            history.push('/');
+        });
+    }
 
     // HTML Items List
     let itemList = [];
@@ -59,6 +109,7 @@ function DashboardPage() {
     return (
         <div>
             {anyItems ? <ul>{itemList}</ul> : <NoTicketsCard />}
+            <button className="btn btn-lg btn-danger" onClick={logout}>Logout</button>
         </div>
     );
 }

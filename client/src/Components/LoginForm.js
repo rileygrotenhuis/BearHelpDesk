@@ -33,7 +33,7 @@ function LoginForm() {
                 // If the status passes, redirect to Home Page (for now...)
                 if (res.status.toString() === '200') {
                     alert('Successully Authenticated!');
-                    history.push('/');
+                    history.push('/dashboard');
                 // Alert the user if the employee does not exist
                 } else if (res.status.toString() === '201') {
                     alert('Employee does not exist!');
