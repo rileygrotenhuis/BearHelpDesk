@@ -4,12 +4,14 @@ import Axios from 'axios';
 
 // Components
 import TicketCard from '../Components/TicketCard';
+import NoTicketsCard from '../Components/NoTicketsCard';
 
 // Dashboard Page
 function DashboardPage() {
 
     // useState Variables
     const [allItems, setAllItems] = useState([]);
+    const [anyItems, setAnyItems] = useState(true);
 
     // On Page Load
     useEffect(() => {
@@ -22,13 +24,19 @@ function DashboardPage() {
             // Local Items array
             let items = [];
 
-            // For each item in the data set, push the data into the local array
-            for (var i = 0; i < results.data.length; i++) {
-                items.push(results.data[i]);
+            // If there is no data in the results, set anyItems? to false
+            if (results.data[0] == null) {
+                setAnyItems(false);
+            // Otherwise, add the results data to the items array
+            } else {
+                // For each item in the data set, push the data into the local array
+                for (var i = 0; i < results.data.length; i++) {
+                    items.push(results.data[i]);
+                }
+                
+                // Set the allItems array to the local results data local array
+                setAllItems(items);
             }
-
-            // Set the allItems useState array to the local array
-            setAllItems(items);
         }); 
     }, []);
 
@@ -50,9 +58,7 @@ function DashboardPage() {
     // JSX
     return (
         <div>
-            <ul>
-                {itemList}
-            </ul>
+            {anyItems ? <ul>{itemList}</ul> : <NoTicketsCard />}
         </div>
     );
 }
