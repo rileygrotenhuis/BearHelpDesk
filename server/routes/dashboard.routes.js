@@ -16,12 +16,23 @@ router.get('/:employeeEmail/tickets/current', async (req, res) => {
     try {
         // Get all of the tickets an employee is working on
         const data = await dashboardController.getCurrentTickets(req.params.employeeEmail);
+
+        // Convert the urgencies
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].urgency === 1) {
+                data[i].urgency = 'Major';
+            } else if (data[i].urgency === 2) {
+                data[i].urgency = 'Moderate';
+            } else {
+                data[i].urgency = 'Minor'
+            }
+        }
+
         // Send that data
-        res.send(data);
+        res.status(200).send(data);
 
         // Success Output
         console.log(data);
-        res.status(200).send();
     } catch (e) {
         // Failure Output
         console.log(e);
