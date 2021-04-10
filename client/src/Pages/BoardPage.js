@@ -11,13 +11,15 @@ function BoardPage() {
     return (
         <div>
             <Navbar2 />
-            <h1>Board Page</h1>
-            <TicketCard2 
-                title="Test Ticket"
-                type="Hardware"
-                urgency="Minor"
-                date="01/03/2021"
-            />
+            <div className="container mt-3">
+                <h1 className="mb-3">Board Page</h1>
+                <TicketCard2 
+                    title="Test"
+                    type="Hardware"
+                    urgency="Major"
+                    date="01/10/2021"
+                />
+            </div>
         </div>
     );
 }

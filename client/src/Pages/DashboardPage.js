@@ -81,8 +81,10 @@ function DashboardPage() {
     return (
         <div>
             <Navbar2 />
-            <h1>Dashboard Page</h1>
-            {anyItems ? <ul>{itemList}</ul> : <NoTicketsCard />}
+            <div className="container mt-3">
+                <h1 className="mb-3">Dashboard Page</h1>
+                {anyItems ? <div>{itemList}</div> : <NoTicketsCard />}
+            </div>
         </div>
     );
 }
