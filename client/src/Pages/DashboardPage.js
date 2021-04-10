@@ -69,6 +69,7 @@ function DashboardPage() {
     allItems.forEach((item, index) => {
         itemList.push(
             <TicketCard
+                ticketID={item.ticket_id}
                 title={item.title}
                 type={item.type}
                 urgency={item.urgency}

@@ -7,7 +7,7 @@ function TicketCard2(props) {
     
     // Assign
     const assign = () => {
-        alert('Testing');
+        alert(props.ticketID);
     }
 
     // JSX
