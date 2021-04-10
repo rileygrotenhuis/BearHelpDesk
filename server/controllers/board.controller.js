@@ -16,5 +16,5 @@ exports.getAllTickets = async () => {
 // Changes the employee who is currently working on a given ticket
 exports.assignTicket = async (ticketID, employee) => {
     // SQL UPDATE Query
-    await pool.query("UPDATE tickets SET employee = $1 WHERE ticket_id = $2", [employee, ticketID]);
+    await pool.query("UPDATE tickets SET employee = $1, status = $2 WHERE ticket_id = $3", [employee, 'In Progress' ,ticketID]);
 }
