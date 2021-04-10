@@ -6,7 +6,7 @@ import Axios from 'axios';
 // Components
 import Navbar2 from '../Components/Navbar2';
 import TicketCard2 from '../Components/TicketCard2';
-import NoTicketsCard from '../Components/NoTicketsCard';
+import NoTicketsCard2 from '../Components/NoTicketsCard2';
 
 // Board Page
 function BoardPage() {
@@ -84,7 +84,7 @@ function BoardPage() {
             <Navbar2 />
             <div className="container mt-3">
                 <h1 className="mb-3">Board Page</h1>
-                {anyItems ? <div>{itemList}</div> : <NoTicketsCard />}
+                {anyItems ? <div>{itemList}</div> : <NoTicketsCard2 />}
             </div>
         </div>
     );
