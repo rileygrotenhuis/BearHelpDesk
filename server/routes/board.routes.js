@@ -21,15 +21,14 @@ router.get('/tickets/all', async (req, res) => {
         // If there are no tickets currently working
         if (data[0] == null) {  
             console.log("There are currently no tickets");
-            res.status(202);
+            res.status(202).send();
         // Otherwise...
         } else {
             // Send that data
-            res.send(data);
+            res.status(200).send(data);
 
             // Success Output
             console.log(data);
-            res.status(200).send();
         }
     } catch (e) {
         // Failure Output
