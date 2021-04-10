@@ -29,6 +29,7 @@ function Navbar() {
         });
     }
 
+    // JSX
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <Link to="/dashboard" class="navbar-brand">Bear Help Desk</Link>
