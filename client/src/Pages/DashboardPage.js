@@ -36,7 +36,7 @@ function DashboardPage() {
                 Axios({
                     method: "GET",
                     withCredentials: true,
-                    url: 'http://localhost:5000/dashboard/rg1050@live.missouristate.edu/tickets/current'
+                    url: 'http://localhost:5000/dashboard/' + results.data.employee_email + '/tickets/current'
                 }).then(results => {
                     // Local Items array
                     let items = [];
