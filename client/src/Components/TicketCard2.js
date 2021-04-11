@@ -24,7 +24,7 @@ function TicketCard2(props) {
                 data: {
                     "employee": results.data.employee_email
                 },
-                url: 'http://localhost:5000/board/ticket/' + props.ticketID + '/assign'
+                url: 'http://localhost:5000/board/ticket/' + props.ticketInfo.ticket_id + '/assign'
             }).then(res => {
                 if (res.status.toString() === '200') {
                     alert('Ticket has been assigned to you!');
