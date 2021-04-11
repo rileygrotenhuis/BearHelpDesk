@@ -29,7 +29,13 @@ function TicketPage() {
                 history.push('/login');
             // Otherwise, carry on...
             } else {
-                alert(`You will soon be able to see the info for ${ticketID}`);
+                Axios({
+                    method: "GET",
+                    withCredentials: true,
+                    url: `http://localhost:5000/dashboard/ticket/${ticketID}`
+                }).then(res => {
+                    alert(res.data.title);
+                });
             }
         });
     }, []);

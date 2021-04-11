@@ -24,3 +24,15 @@ exports.deleteTicket = async (ticketID) => {
     // SQL DELETE Query
     await pool.query("DELETE FROM tickets WHERE ticket_id = $1", [ticketID]);
 }
+
+// This function returns the information of a given ticket
+exports.getTicketInfo = async (ticketID) => {
+    // SQL SELECT Query
+    var data = await pool.query("SELECT * FROM tickets WHERE ticket_id = $1", [ticketID]);
+
+    // Just get the data from the above query
+    data = data.rows;
+
+    // Return the data
+    return data;
+}

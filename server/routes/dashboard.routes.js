@@ -72,5 +72,23 @@ router.delete('/ticket/:ticketID', async (req, res) => {
     }
 });
 
+// GET '/dashboard/ticket/:ticketID' => Get all of the information from a given ticket
+router.get('/ticket/:ticketID', async (req, res) => {
+    try {
+        // Get the information of a given ticket
+        const data = await dashboardController.getTicketInfo(req.params.ticketID);
+
+        // Send that data
+        res.status(200).send(data[0]);
+
+        // Success Output
+        console.log(data);
+    } catch (e) {
+        // Failure Output
+        console.log(e);
+        res.status(201).send();
+    }
+})
+
 // Export Router
 module.exports = router;
