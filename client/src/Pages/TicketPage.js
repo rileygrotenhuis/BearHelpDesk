@@ -1,10 +1,11 @@
 // React Modules
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import Axios from 'axios';
 
 // Components
 import Navbar2 from '../Components/Navbar2';
+import TicketCard3 from '../Components/TicketCard3';
 
 // Ticket Page
 function TicketPage() {
@@ -14,6 +15,15 @@ function TicketPage() {
 
     // useParams Variables
     const { ticketID } = useParams();
+
+    // useState Variables
+    const [title, setTitle] = useState("");
+    const [type, setType] = useState("");
+    const [urgency, setUrgency] = useState("");
+    const [date, setDate] = useState("");
+    const [description, setDescription] = useState("");
+    const [clientName, setClientName] = useState("");
+    const [clientEmail, setClientEmail] = useState("");
 
     // On Page Load
     useEffect(() => {
@@ -34,7 +44,14 @@ function TicketPage() {
                     withCredentials: true,
                     url: `http://localhost:5000/dashboard/ticket/${ticketID}`
                 }).then(res => {
-                    alert(res.data.title);
+                    // Set all Ticket Info
+                    setTitle(res.data.title);
+                    setType(res.data.urgency);
+                    setUrgency(res.data.urgency);
+                    setDate(res.data.date_submitted);
+                    setDescription(res.data.description);
+                    setClientName(res.data.client_name);
+                    setClientEmail(res.data.client_email);
                 });
             }
         });
@@ -45,7 +62,13 @@ function TicketPage() {
         <div>
             <Navbar2 />
             <div className="container mt-3">
-                <h1 className="mb-3">Ticket Page</h1>
+                <TicketCard3
+                    title={title}
+                    type={type}
+                    urgency={urgency}
+                    date={date}
+                    description={description}
+                />
             </div>
         </div>
     );
