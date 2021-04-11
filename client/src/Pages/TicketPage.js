@@ -70,7 +70,7 @@ function TicketPage() {
                     date={date}
                     description={description}
                 />
-                <TicketAction />
+                <TicketAction ticketID={ticketID} />
             </div>
         </div>
     );
