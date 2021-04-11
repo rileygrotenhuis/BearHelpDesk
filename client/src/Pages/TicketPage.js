@@ -6,6 +6,7 @@ import Axios from 'axios';
 // Components
 import Navbar2 from '../Components/Navbar2';
 import TicketCard3 from '../Components/TicketCard3';
+import TicketAction from '../Components/TicketAction';
 
 // Ticket Page
 function TicketPage() {
@@ -69,6 +70,7 @@ function TicketPage() {
                     date={date}
                     description={description}
                 />
+                <TicketAction />
             </div>
         </div>
     );
