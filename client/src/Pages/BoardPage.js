@@ -69,11 +69,7 @@ function BoardPage() {
     allItems.forEach((item, index) => {
         itemList.push(
             <TicketCard2
-                ticketID={item.ticket_id}
-                title={item.title}
-                type={item.type}
-                urgency={item.urgency}
-                date={item.date_submitted}
+                ticketInfo={item}
             />
         );
     });
