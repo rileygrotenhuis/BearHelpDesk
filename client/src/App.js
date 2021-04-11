@@ -13,6 +13,7 @@ import LoginPage from './Pages/LoginPage';
 import DashboardPage from './Pages/DashboardPage';
 import BoardPage from './Pages/BoardPage';
 import ProfilePage from './Pages/ProfilePage';
+import TicketPage from './Pages/TicketPage';
 
 
 // Main App Component
@@ -23,6 +24,9 @@ function App() {
 	<div>
 		<Router>
 			<Switch>
+				<Route path="/ticket/:ticketID">
+					<TicketPage />
+				</Route>
 				<Route path="/board">
 					<BoardPage />
 				</Route>
