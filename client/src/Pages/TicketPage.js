@@ -55,6 +55,9 @@ function TicketPage() {
                     setClientEmail(res.data.client_email);
                 });
             }
+        }).catch(function(error) {
+            alert('An error has occured while accessing this page.');
+            history.push('/');
         });
     }, []);
 

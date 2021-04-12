@@ -25,6 +25,9 @@ function TicketAction(props) {
             } else {
                 alert('There was an error while trying to complete this ticket');
             }
+        }).catch(function(error) {
+            alert('An error has occured while accessing this page.');
+            history.push('/');
         });
     }
 
@@ -44,6 +47,9 @@ function TicketAction(props) {
             } else {
                 alert('There was an error while trying to delete this ticket');
             }
+        }).catch(function(error) {
+            alert('An error has occured while accessing this page.');
+            history.push('/');
         }); 
     }
 

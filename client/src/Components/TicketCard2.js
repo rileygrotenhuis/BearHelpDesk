@@ -33,10 +33,8 @@ function TicketCard2(props) {
                     alert('An error has occured while trying to claim this ticket!');
                 }
             }).catch(function(error) {
-                if (error) {
-                    alert('An error occured!');
-                    console.log(error);
-                }
+                alert('An error has occured while accessing this page.');
+                history.push('/');
             });
         });
     }
