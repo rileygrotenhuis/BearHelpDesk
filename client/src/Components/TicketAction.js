@@ -11,14 +11,11 @@ function TicketAction(props) {
 
     // Complete Button Click
     const completeTicket = () => {
-        // PUT => '/dashboard/ticket/:ticketID/status'
+        // PUT => '/dashboard/ticket/:ticketID/status/complete'
         Axios({
             method: "PUT",
-            data: {
-                "status": "Complete"
-            },
             withCredentials: true,
-            url: "http://localhost:5000/dashboard/ticket/" + props.ticketID + "/status"
+            url: "http://localhost:5000/dashboard/ticket/" + props.ticketID + "/status/complete"
         }).then(results => {
             // If the status is clean, alert the user and redirect to Dashboard Page
             if (results.status.toString() == '200') {

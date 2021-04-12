@@ -36,3 +36,12 @@ exports.getTicketInfo = async (ticketID) => {
     // Return the data
     return data;
 }
+
+// This function completes a ticket
+exports.completeTicket = async (ticketID) => {
+    // Get the currente date and convert it to a string
+    const date = new Date().toLocaleDateString('en-US');
+
+    // SQL UPDATE Query
+    await pool.query("UPDATE tickets SET status = $1, date_completed = $2", ['Completed', date]);
+}

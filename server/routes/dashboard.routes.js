@@ -56,6 +56,22 @@ router.put('/ticket/:ticketID/status', async (req, res) => {
     }
 });
 
+// PUT '/dashboard/ticket/:ticketID/status/complete' => Completed a given ticket
+router.put('/ticket/:ticketID/status/complete', async (req, res) => {
+    try {
+        // Complete a given ticket
+        dashboardController.completeTicket(req.params.ticketID);
+
+        // Success Output
+        console.log('Ticket has been marked as complete!');
+        res.status(200).send();
+    } catch (e) {
+        // Failure Output
+        console.log(e);
+        res.status(201).send();
+    }
+});
+
 // DELETE '/dashboard/ticket/:ticketID' => Delete a given ticket from the database
 router.delete('/ticket/:ticketID', async (req, res) => {
     try {
@@ -88,7 +104,7 @@ router.get('/ticket/:ticketID', async (req, res) => {
         console.log(e);
         res.status(201).send();
     }
-})
+});
 
 // Export Router
 module.exports = router;
