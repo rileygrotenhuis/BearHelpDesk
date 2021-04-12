@@ -51,11 +51,10 @@ router.get('/:employeeEmail/tickets/completed', async (req, res) => {
         // Get all of the tickets an employee is working on
         const data = await profileController.getCompletedTickets(req.params.employeeEmail);
         // Send that data
-        res.send(data);
 
         // Success Output
         console.log(data);
-        res.status(200).send();
+        res.status(200).send(data);
     } catch (e) {
         // Failure Output
         console.log(e);

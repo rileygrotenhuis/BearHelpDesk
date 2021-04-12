@@ -59,7 +59,7 @@ function DashboardPage() {
         }).catch(function(error) {
             alert('An error has occured while accessing this page.');
             history.push('/');
-        })
+        });
     }, []);
 
     // HTML Items List
