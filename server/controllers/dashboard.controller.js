@@ -43,5 +43,5 @@ exports.completeTicket = async (ticketID) => {
     const date = new Date().toLocaleDateString('en-US');
 
     // SQL UPDATE Query
-    await pool.query("UPDATE tickets SET status = $1, date_completed = $2", ['Completed', date]);
+    await pool.query("UPDATE tickets SET status = $1, date_completed = $2 WHERE ticket_id = $3", ['Completed', date, ticketID]);
 }
