@@ -58,7 +58,23 @@ router.get('/:employeeEmail/tickets/completed', async (req, res) => {
     } catch (e) {
         // Failure Output
         console.log(e);
-        res.status(201).send.send();
+        res.status(201).send();
+    }
+});
+
+// PUT '/profile/:employeeEmail/ticket/:ticketID/incomplete' => Un-assigns an employee from a given ticket
+router.put('/ticket/:ticketID/incomplete', async (req, res) => {
+    try {
+        // Unassign employee from ticket
+        profileController.incompleteTicket(req.params.ticketID);
+
+        // Success Output
+        console.log('Ticket has been marked as incomplete!');
+        res.status(200).send();
+    } catch (e) {
+        // Failure Output
+        console.log(e);
+        res.status(201).send();
     }
 });
 

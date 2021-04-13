@@ -30,3 +30,9 @@ exports.getCompletedTickets = async (employee) => {
     // Return the data
     return data;
 }
+
+// This function un-assigns an employee from a ticket
+exports.incompleteTicket = async (ticketID) => {
+    // SQL UPDATE Query
+    await pool.query("UPDATE tickets SET status = $1, date_completed = $2 WHERE ticket_id = $3", ['In Progress', 'NULL', ticketID]);
+}
