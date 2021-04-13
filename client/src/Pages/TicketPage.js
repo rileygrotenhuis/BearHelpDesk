@@ -7,6 +7,7 @@ import Axios from 'axios';
 import Navbar2 from '../Components/Navbar2';
 import TicketCard3 from '../Components/TicketCard3';
 import TicketAction from '../Components/TicketAction';
+import ContactForm from '../Components/ContactForm';
 
 // Ticket Page
 function TicketPage() {
@@ -74,6 +75,11 @@ function TicketPage() {
                     description={description}
                 />
                 <TicketAction ticketID={ticketID} />
+                <ContactForm 
+                    ticketID={ticketID} 
+                    name={clientName}
+                    email={clientEmail}
+                />
             </div>
         </div>
     );
