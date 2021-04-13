@@ -95,5 +95,19 @@ router.get('/ticket/:ticketID', async (req, res) => {
     }
 });
 
+// PUT => '/dashboard/ticket/:ticketID/unassign' => Unassigns a ticket from an employee
+router.put('/ticket/:ticketID/unassign', async (req, res) => {
+    try {
+        // Unassign a ticket
+        dashboardController.unassignTicket(req.params.ticketID);
+
+        res.status(200).send();
+    } catch (e) {
+        // Failure Output
+        console.log(e);
+        res.status(201).send();
+    }
+});
+
 // Export Router
 module.exports = router;

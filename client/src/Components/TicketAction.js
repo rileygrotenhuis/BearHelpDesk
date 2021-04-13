@@ -27,7 +27,7 @@ function TicketAction(props) {
             }
         }).catch(function(error) {
             alert('An error has occured while accessing this page.');
-            history.push('/');
+            history.push('/dashboard');
         });
     }
 
@@ -49,8 +49,30 @@ function TicketAction(props) {
             }
         }).catch(function(error) {
             alert('An error has occured while accessing this page.');
-            history.push('/');
+            history.push('/dashboard');
         }); 
+    }
+
+    // Unassign Button Click
+    const unassignTicket = () => {
+        // PUT => '/dashboard/ticket/:ticketID/unassign'
+        Axios({
+            method: "PUT",
+            withCredentials: true,
+            url: 'http://localhost:5000/dashboard/ticket/' + props.ticketID + '/unassign'
+        }).then(results => {
+            // If the status is clean, alert the user and redirect to Dashboard Page
+            if (results.status.toString() == '200') {
+                alert('Ticket has been unassigned!');
+                history.push('/dashboard');
+            // Otherwise, alert the user of the error
+            } else {
+                alert('There was an error while trying to unassign yourself from this ticket');
+            }
+        }).catch(function(error) {
+            alert('An error has occured while accessing this page.');
+            history.push('/dashboard');
+        })
     }
 
     // JSX
@@ -58,6 +80,7 @@ function TicketAction(props) {
         <div>
             <button onClick={completeTicket} className="btn btn-md btn-primary">Complete</button>
             <button onClick={deleteTicket} className="btn btn-md btn-danger">Delete</button>
+            <button onClick={unassignTicket} className="btn btn-md btn-success">Unassign</button>
         </div>
     );
 }

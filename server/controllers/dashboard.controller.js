@@ -45,3 +45,9 @@ exports.completeTicket = async (ticketID) => {
     // SQL UPDATE Query
     await pool.query("UPDATE tickets SET status = $1, date_completed = $2 WHERE ticket_id = $3", ['Completed', date, ticketID]);
 }
+
+// This function unassigned an employee from a ticket
+exports.unassignTicket = async (ticketID) => {
+    // SQL UPDATE Query
+    await pool.query("UPDATE tickets SET employee = NULL, status = $1 WHERE ticket_id = $2", ['Backlog', ticketID]);
+}
