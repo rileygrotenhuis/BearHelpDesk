@@ -56,6 +56,7 @@ function BoardPage() {
                     }
                 });
             }
+        // Catch any errors
         }).catch(function(error) {
             alert('An error has occured while accessing this page.');
             history.push('/');

@@ -18,7 +18,6 @@ import TicketPage from './Pages/TicketPage';
 
 // Main App Component
 function App() {
-
 	// Routes
 	return (
 	<div>

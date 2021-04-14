@@ -41,6 +41,7 @@ function TicketPage() {
                 history.push('/login');
             // Otherwise, carry on...
             } else {
+                // GET => '/dashboard/ticket/:ticketID'
                 Axios({
                     method: "GET",
                     withCredentials: true,
@@ -56,6 +57,7 @@ function TicketPage() {
                     setClientEmail(res.data.client_email);
                 });
             }
+        // Catch any errors
         }).catch(function(error) {
             alert('An error has occured while accessing this page.');
             history.push('/');
