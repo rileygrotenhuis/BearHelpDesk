@@ -3,7 +3,6 @@ const pool = require('../config/db.config');
 
 // This function creates a new IT Support Ticket and inserts it to the database
 exports.submitTicket = async (title, type, urgency, description, name, email) => {
-
     // Get the currente date and convert it to a string
     const date = new Date().toLocaleDateString('en-US');
 

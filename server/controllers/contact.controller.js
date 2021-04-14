@@ -3,7 +3,6 @@ const nodemailer = require('nodemailer');
 
 // This function sends an email to a given client
 exports.contactClient = (client, body) => {
-
     // Sets up the authentication for the use of email
     var transporter = nodemailer.createTransport({
         service: 'gmail',
