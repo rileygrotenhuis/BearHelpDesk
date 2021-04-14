@@ -1,10 +1,3 @@
-/*
-    STATUS KEY:
-    - 200 = Success
-    - 201 = Failure
-    - 202 = No tickets
-*/
-
 // Express
 const express = require('express');
 const router = express.Router();

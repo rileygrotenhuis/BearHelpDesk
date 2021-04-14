@@ -1,10 +1,3 @@
-/*
-    STATUS KEY:
-    - 200 = Success
-    - 201 = Employee doesn't exist
-    - 202 = Password does not match
-*/
-
 // Express
 const express = require('express');
 const router = express.Router();
