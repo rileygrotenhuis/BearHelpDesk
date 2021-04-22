@@ -126,6 +126,10 @@ p {
     margin-bottom: 5px;
 }
 
+.card-title-1:hover {
+    text-decoration: underline;
+}
+
 .card-subtitle {
     font-weight: lighter;
     margin: 0;
