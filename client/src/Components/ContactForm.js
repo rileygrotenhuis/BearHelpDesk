@@ -32,18 +32,17 @@ function ContactForm(props) {
 
     // JSX
     return (
-        <div className="w-50">
-            <h1>Send Message to Client</h1>
-            <div class="form-group">
-                <label for="message">Message</label>
+        <div className="form">
+            <h1 className="form-title">Contact Form</h1>
+            <div>
+                <label className="form-label-1">Message:</label>
                 <textarea
-                    class="form-control" 
-                    id="message" 
-                    rows="3"
+                    className="form-textarea" 
+                    row="3" 
                     onChange={(e) => setMessage(e.target.value)}
                 />
             </div>
-            <button onClick={contact} className="btn btn-md btn-primary mt-3">Send</button>
+            <button onClick={contact} className="form-button-1">Send</button>
         </div>
     );
 }

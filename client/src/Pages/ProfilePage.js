@@ -92,12 +92,6 @@ function ProfilePage() {
         <Navbar2 />
         <div className="container mt-3">
             <h1 className="mb-3">My Profile</h1>
-            <EmployeeInfo
-                email={email}
-                password={password}
-                firstName={firstName}
-                lastName={lastName}
-            />
             {anyItems ? <div>{itemList}</div> : <NoTicketsCard3 />}
         </div>
     </div>

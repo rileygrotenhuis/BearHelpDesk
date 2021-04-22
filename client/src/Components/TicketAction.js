@@ -77,10 +77,20 @@ function TicketAction(props) {
 
     // JSX
     return (
-        <div>
-            <button onClick={completeTicket} className="btn btn-md btn-primary">Complete</button>
-            <button onClick={deleteTicket} className="btn btn-md btn-danger">Delete</button>
-            <button onClick={unassignTicket} className="btn btn-md btn-success">Unassign</button>
+        // <div>
+        //     <button onClick={completeTicket} className="btn btn-md btn-primary">Complete</button>
+        //     <button onClick={deleteTicket} className="btn btn-md btn-danger">Delete</button>
+        //     <button onClick={unassignTicket} className="btn btn-md btn-success">Unassign</button>
+        // </div>
+
+        <div className="ticketAction">
+            <div>
+                <button onClick={completeTicket} className="ticketAction-button-1">Complete</button>
+                <button onClick={unassignTicket} className="ticketAction-button-2">Unassign</button>
+            </div>
+            <div>
+                <button onClick={deleteTicket} className="ticketAction-button-3">Delete</button>
+            </div>
         </div>
     );
 }
