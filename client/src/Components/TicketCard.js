@@ -19,13 +19,11 @@ function TicketCard(props) {
 
     // JSX
     return (
-        <div className="card" style={{width: "18rem"}}>
-            <div className="card-body">
-                <Link to={ticketURL}><h5 className="card-title">{props.ticketInfo.title}</h5></Link>
-                <h6 className="card-subtitle mb-2 text-muted">Type: {props.ticketInfo.type}</h6>
-                <h6 className="card-subtitle mb-2 text-muted">Urgency: {props.ticketInfo.urgency}</h6>
-                <h6 className="card-subtitle mb-2 text-muted">Date Submitted: {props.ticketInfo.date_submitted}</h6>
-            </div>
+        <div className="card-1">
+            <Link to={ticketURL} style={{"textDecoration": "none"}}><h1 className="card-title-1">{props.ticketInfo.title}</h1></Link>
+            <h3 className="card-subtitle">Type: {props.ticketInfo.type}</h3>
+            <h3 className="card-subtitle">Urgency: {props.ticketInfo.urgency}</h3>
+            <h3 className="card-subtitle">Date Submitted: {props.ticketInfo.date_submitted}</h3>
         </div>
     );
 }

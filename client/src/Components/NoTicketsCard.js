@@ -5,7 +5,10 @@ import React from 'react';
 function NoTicketsCard() {
     // JSX
     return (
-        <h1>You currently have no tickets!</h1>
+        <div className="notickets">
+            <h1 className="notickets-title">You currently have no tickets!</h1>
+            <p className="notickets-text">You will have to claim tickets on the Board Page</p>
+        </div>
     );
 }
 
