@@ -6,6 +6,9 @@ import {
     Route
 } from 'react-router-dom';
 
+// CSS
+import './App.min.css';
+
 // Components
 import HomePage from './Pages/HomePage';
 import SubmitPage from './Pages/SubmitPage';
