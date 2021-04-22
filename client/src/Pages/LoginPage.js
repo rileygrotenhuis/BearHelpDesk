@@ -11,7 +11,6 @@ function LoginPage() {
         <div>
             <Navbar />
             <div className="container w-50">
-                <h1 className="mt-3">Login Page</h1>
                 <LoginForm />
             </div>
         </div>

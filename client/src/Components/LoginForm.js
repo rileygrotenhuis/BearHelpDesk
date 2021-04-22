@@ -53,27 +53,26 @@ function LoginForm() {
 
     // JSX
     return (
-        <div>
-            <div class="form-group">
-                <label for="username">Username</label>
+        <div className="form">
+            <h1 className="form-title">Employee Login</h1>
+            <div>
+                <label className="form-label-1">Employee Email:</label>
                 <input 
+                    className="form-input-1" 
                     type="text" 
-                    class="form-control" 
-                    id="title" 
                     onChange={(e) => setUsername(e.target.value)}
                 />
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
+            <div>
+                <label className="form-label-1">Password:</label>
                 <input 
+                    className="form-input-1" 
                     type="password" 
-                    class="form-control" 
-                    id="title" 
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
-            <button onClick={login} className="btn btn-md btn-primary mt-3">Login</button>
-        </div>
+            <button onClick={login} className="form-button-2">Login</button>
+    </div>
     )
 }
 

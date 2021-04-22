@@ -11,7 +11,6 @@ function SubmitPage() {
         <div>
             <Navbar />
             <div className="container w-50">
-                <h1 className="mt-3">Submit Page</h1>
                 <SubmitTicketForm />
             </div>
         </div>
