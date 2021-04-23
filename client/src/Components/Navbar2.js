@@ -31,7 +31,7 @@ function Navbar() {
 
     // JSX
     return (
-        <nav class="navbar navbar-expand-lg navbar-dark" style={{"background": "#121212", "borderBottom": "1px solid white"}}>
+        <nav class="navbar navbar-expand-lg navbar-dark" style={{"background": "#121212", "borderBottom": "1px solid white", "marginBottom": "50px"}}>
             <div className="container-fluid">
                 <Link to="/dashboard" className="navbar-brand">Bear Help Desk</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
