@@ -7,7 +7,7 @@ import {
 // Navbar Component
 function Navbar() {
     return (
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-dark" style={{"background": "#121212", "borderBottom": "1px solid white"}}>
             <div class="container-fluid">
                 <Link to="/" className="navbar-brand">Bear Help Desk</Link>
             </div>
